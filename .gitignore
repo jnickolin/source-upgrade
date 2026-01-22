@@ -1,28 +1,36 @@
-b-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
+# Node dependencies
+node_modules/
 
-pids
-logs
-results
+# Build output
+assets/built/
 
-npm-debug.log
-node_modules
-package-lock.json
+# Package manager lock files (choose one based on your preference)
+# Uncomment the one you're NOT using:
+# package-lock.json
+# yarn.lock
 
-.idea/*
-*.iml
-projectFilesBackup
-
+# System files
 .DS_Store
+Thumbs.db
 
-dist/
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-config.json
-changelog.md
-changelog.md.bk
+# Log files
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Ghost theme zip files
+*.zip
+
+# Temporary files
+*.tmp
+.cache/
