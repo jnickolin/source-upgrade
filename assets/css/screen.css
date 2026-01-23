@@ -68,6 +68,8 @@ production stylesheet in assets/built/screen.css
     --font-serif: "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: Georgia, Times, serif;
     --font-mono: "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+    --font-cositimes: "CosiTimes", serif;
+    --font-montserrat: "Montserrat", sans-serif;
     --container-width: 1320px;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
@@ -2478,6 +2480,59 @@ figcaption a {
     text-decoration: underline;
 }
 
+/* Three Column Text Card */
+
+.kg-three-column-text-card {
+    margin: 64px 0;
+    padding: 48px 0;
+}
+
+.kg-three-column-text-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+}
+
+.kg-three-column-text-item {
+    text-align: left;
+}
+
+.kg-three-column-text-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    color: var(--color-darker-gray);
+}
+
+.kg-three-column-text-subheading {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: var(--color-primary-text);
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (max-width: 991px) {
+    .kg-three-column-text-container {
+        gap: 48px;
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .kg-three-column-text-card {
+        padding: 32px 0;
+    }
+    
+    .kg-three-column-text-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 24px;
+    }
+}
+
 /* 17. Comments
 /* ---------------------------------------------------------- */
 
@@ -2618,6 +2673,16 @@ figcaption a {
     --factor: 1.1;
 }
 
+.has-cositimes-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) {
+    --factor: 1.15;
+}
+
+.has-cositimes-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.is-title, .gh-content :is(h2, h3)) {
+    font-family: var(--gh-font-heading, var(--font-cositimes));
+    font-weight: 550;
+}
+
+
 .has-sans-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.is-title, .gh-content :is(h2, h3)) {
     font-family: var(--gh-font-heading, var(--font-sans));
 }
@@ -2637,6 +2702,10 @@ figcaption a {
 
 .has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .is-body {
     font-family: var(--gh-font-body, var(--font-serif-alt));
+}
+
+.has-montserrat-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .is-body {
+    font-family: var(--gh-font-body, var(--font-montserrat));
 }
 
 .has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .gh-header.is-classic .gh-header-title {
@@ -2722,7 +2791,12 @@ figcaption a {
     letter-spacing: 0;
 }
 
-:is(.has-serif-title,.has-mono-title):not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.gh-button, .gh-form, .gh-form-input),
+/* :is(.has-serif-title,.has-mono-title):not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.gh-button, .gh-form, .gh-form-input),
+body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-heading-inter):not(.gh-font-heading-manrope):not(.gh-font-heading-noto-sans):not(.gh-font-heading-nunito):not(.gh-font-heading-poppins):not(.gh-font-heading-roboto):not(.gh-font-heading-space-grotesk) :is(.gh-button, .gh-form, .gh-form-input) {
+    border-radius: 0;
+}*/
+
+:is(.has-serif-title,.has-mono-title,.has-cositimes-title):not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.gh-button, .gh-form, .gh-form-input),
 body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-heading-inter):not(.gh-font-heading-manrope):not(.gh-font-heading-noto-sans):not(.gh-font-heading-nunito):not(.gh-font-heading-poppins):not(.gh-font-heading-roboto):not(.gh-font-heading-space-grotesk) :is(.gh-button, .gh-form, .gh-form-input) {
     border-radius: 0;
 }

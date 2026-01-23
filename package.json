@@ -110,7 +110,8 @@
                 "options": [
                     "Modern sans-serif",
                     "Elegant serif",
-                    "Consistent mono"
+                    "Consistent mono",
+                    "CosiTimes"
                 ],
                 "default": "Modern sans-serif"
             },
@@ -118,7 +119,8 @@
                 "type": "select",
                 "options": [
                     "Modern sans-serif",
-                    "Elegant serif"
+                    "Elegant serif",
+                    "Montserrat"
                 ],
                 "default": "Modern sans-serif"
             },

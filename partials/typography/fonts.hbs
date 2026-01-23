@@ -1,7 +1,7 @@
 {{!-- Sans-serif font is always loaded, because it's the default font for some part of the theme regardless of the settings --}}
 {{> "typography/sans"}}
 
-{{#match @custom.title_font "Modern sans-serif"}}
+{{!-- {{#match @custom.title_font "Modern sans-serif"}}
     {{#match @custom.body_font "Elegant serif"}}
         {{> "typography/serif"}}
     {{/match}}
@@ -12,4 +12,22 @@
     {{#match @custom.body_font "Elegant serif"}}
         {{> "typography/serif"}}
     {{/match}}
+{{/match}} --}}
+
+{{!-- Load title font --}}
+{{#match @custom.title_font "Elegant serif"}}
+    {{> "typography/serif"}}
+{{else match @custom.title_font "Consistent mono"}}
+    {{> "typography/mono"}}
+{{else match @custom.title_font "CosiTimes"}}
+    {{> "typography/cositimes"}}
+{{/match}}
+
+{{!-- Load body font if different from title font --}}
+{{#match @custom.body_font "Elegant serif"}}
+    {{#unless (match @custom.title_font "Elegant serif")}}
+        {{> "typography/serif"}}
+    {{/unless}}
+{{else match @custom.body_font "Montserrat"}}
+    {{> "typography/montserrat"}}
 {{/match}}
