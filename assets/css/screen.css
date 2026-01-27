@@ -44,6 +44,8 @@ production stylesheet in assets/built/screen.css
   21.2. Footer bar
   21.3. Footer signup
 22. Lightbox
+23. Custom Templates
+    23.1 Work page
 
 */
 
@@ -58,7 +60,7 @@ production stylesheet in assets/built/screen.css
     --color-dark-gray: #444;
     --color-darker-gray: #15171a;
     --color-black: #000;
-    --color-primary-text: var(--color-darker-gray);
+    --color-primary-text: var(--color-red);
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
@@ -70,7 +72,8 @@ production stylesheet in assets/built/screen.css
     --font-mono: "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
     --font-cositimes: "CosiTimes", serif;
     --font-montserrat: "Montserrat", sans-serif;
-    --container-width: 1320px;
+    --container-width: 2000px;
+    --content-width: 90%;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
 }
@@ -151,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: var(--color-darker-gray);
+    color: var(--color-primary-text);
     text-decoration: none;
 }
 
@@ -2002,7 +2005,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-article-meta {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 8px;
     margin-top: 20px;
@@ -3410,4 +3413,36 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .pswp--minimal--dark .pswp__top-bar {
     background: none;
+}
+
+/* 23. Custom templates
+/* ---------------------------------------------------------- */
+
+/* 23.1  Work page */
+
+.work-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* 24. Page list */
+
+.home-container-inner {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    gap: 32px;
+
+}
+
+.home-main {
+    width: inherit;
+}
+
+.home-bio-title {
+    font-family: var(--font-montserrat);
+    font-size: 1.8rem;
+    font-weight: 500;
 }
