@@ -3415,7 +3415,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     background: none;
 }
 
-/* 23. Custom templates
+/* 23. Custom Content
 /* ---------------------------------------------------------- */
 
 /* 23.1  Work page */
@@ -3427,22 +3427,28 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     margin: 0 auto;
 }
 
-/* 24. Page list */
+/* 23.2 Page list - Used on Homepage */
 
-.home-container-inner {
+.page-list {
     display: flex;
-    width: 70%;
-    margin: 0 auto;
-    gap: 32px;
-
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
 }
 
-.home-main {
-    width: inherit;
+.bio-lockup-wrapper {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
 }
 
-.home-bio-title {
-    font-family: var(--font-montserrat);
-    font-size: 1.8rem;
-    font-weight: 500;
+
+
+/* 23.3 Page card - Used on Homepage */
+
+.page-card-title {
+    font-family: var(--font-cositimes);
+    font-size: 13rem;
+    font-weight: 400;
+    line-height: 1;
 }

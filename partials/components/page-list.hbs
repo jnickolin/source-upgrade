@@ -1,61 +1,17 @@
-{{!--
-    Parameters:
-    * feed (index, home, archive, recent)
-    * postFeedStyle (list, grid)
-    * showTitle (true, false)
-    * showSidebar (true, false)
---}}
-
-<section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
-    <div class="home-container-inner home-inner">
-        <div class="home-bio-lockup">
-            <h2 class="home-bio-title">
+<section class="page-list portfolio-nav">
+    <div class="bio-lockup-wrapper">
+        <div class="bio-lockup">
+            <h2 class="bio-title">
                 JOJO NICKOLIN
             </h2>
-            <p>Here is a snippet of my bio and what I do.</p>
+            <p class="bio-description">Here is a snippet of my bio and what I do.</p>
         </div>
-        <main class="home-main">
-            <div class="home-feed">
-
-                {{!-- Homepage --}}
-                {{#match feed "home"}}
-                    {{#match @custom.header_style "Highlight"}}
-                        {{#if @custom.show_featured_posts}}
-                            {{#match posts.length ">=" 4}}
-                                {{#get "pages" limit="16"}}
-                                    {{#foreach posts from="5"}}
-                                        {{> "page-card" lazyLoad=true}}
-                                    {{/foreach}}
-                                {{/get}}
-                            {{/match}}
-                        {{else}}
-                            {{#match posts.length ">=" 10}}
-                                {{#get "pages" limit="22"}}
-                                    {{#foreach posts from="11"}}
-                                        {{> "page-card" lazyLoad=true}}
-                                    {{/foreach}}
-                                {{/get}}
-                            {{/match}}
-                        {{/if}}
-                    {{else match @custom.header_style "Magazine"}}
-                        {{#match posts.length ">=" 7}}
-                            {{#get "pages" limit="19"}}
-                                {{#foreach posts from="8"}}
-                                    {{> "page-card" lazyLoad=true}}
-                                {{/foreach}}
-                            {{/get}}
-                        {{/match}}
-                    {{else}}
-                        {{#get "pages" limit="12"}}
-                            {{#foreach pages}}
-                                {{> "page-card" lazyLoad=true}}
-                            {{/foreach}}
-                        {{/get}}
-                    {{/match}}
-                {{/match}}
-
-            </div>
-        </main>
-
+    </div>
+    <div class="page-list-wrapper">
+        {{#get "pages" limit="all" filter="visibility:public"}}
+            {{#foreach pages}}
+                {{> "page-card"}}
+            {{/foreach}}
+        {{/get}}
     </div>
 </section>
