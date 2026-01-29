@@ -4,11 +4,12 @@
             <h2 class="bio-title">
                 JOJO NICKOLIN
             </h2>
-            <p class="bio-description">Here is a snippet of my bio and what I do.</p>
+            <p class="bio-description bio-roles">Front-End Developer / E-Commerce Site Operations Manager / Consultant</p>
+            <p class="bio-description bio-info">HTML, CSS, JavaScript, Handlebars</p>
         </div>
     </div>
     <div class="page-list-wrapper">
-        {{#get "pages" limit="all" filter="visibility:public"}}
+        {{#get "pages" limit="all" filter="slug:[work,resume,about,contact]"}}
             {{#foreach pages}}
                 {{> "page-card"}}
             {{/foreach}}

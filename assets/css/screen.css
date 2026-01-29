@@ -3433,7 +3433,9 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 10%;
+    gap: 1vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .bio-lockup-wrapper {
@@ -3442,13 +3444,36 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     margin-bottom: 20px;
 }
 
+.bio-lockup {
+    max-width: 350px;
+    margin-bottom: 2vw;
+}
+
+.bio-title {
+    font-family: var(--font-montserrat);
+    font-size: 1.85rem;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.bio-description {
+    font-family: var(--font-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
 
 
 /* 23.3 Page card - Used on Homepage */
 
 .page-card-title {
     font-family: var(--font-cositimes);
-    font-size: 13rem;
-    font-weight: 400;
+    font-size: 9vw;
+    font-weight: 300;
+    font-style: normal;
     line-height: 1;
 }
