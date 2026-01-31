@@ -1,12 +1,14 @@
-{{!--<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else match navigationLayout "Stacked"}}stacked{{else}}middle-logo{{/match}}{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
+{{!--<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout " Logo on the left"}}left-logo{{else
+    match navigationLayout "Stacked" }}stacked{{else}}middle-logo{{/match}}{{#match
+    @custom.header_and_footer_color "Accent color" }} has-accent-color{{/match}} gh-outer">
     <div class="gh-navigation-inner gh-inner">
 
         <div class="gh-navigation-brand">
             <a class="gh-navigation-logo is-title" href="{{@site.url}}">
                 {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
                 {{else}}
-                    {{@site.title}}
+                {{@site.title}}
                 {{/if}}
             </a>
             {{> "search-toggle"}}
@@ -19,46 +21,76 @@
         <nav class="gh-navigation-menu">
             {{navigation}}
             {{#unless @site.members_enabled}}
-                {{#match navigationLayout "Stacked"}}
-                    {{> "search-toggle"}}
-                {{/match}}
+            {{#match navigationLayout "Stacked"}}
+            {{> "search-toggle"}}
+            {{/match}}
             {{/unless}}
         </nav>
 
         <div class="gh-navigation-actions">
             {{#unless @site.members_enabled}}
-                {{^match navigationLayout "Stacked"}}
-                    {{> "search-toggle"}}
-                {{/match}}
+            {{^match navigationLayout "Stacked"}}
+            {{> "search-toggle"}}
+            {{/match}}
             {{else}}
-                {{> "search-toggle"}}
-                <div class="gh-navigation-members">
-                    {{#unless @member}}
-                        {{#unless @site.members_invite_only}}
-                            <a href="#/portal/signin" data-portal="signin">Sign in</a>
-                            {{#unless hideSubscribeButton}}
-                                <a class="gh-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
-                            {{/unless}}
-                        {{else}}
-                            <a class="gh-button" href="#/portal/signin" data-portal="signin">Sign in</a>
-                        {{/unless}}
-                    {{else}}
-                        <a class="gh-button" href="#/portal/account" data-portal="account">Account</a>
-                    {{/unless}}
-                </div>
+            {{> "search-toggle"}}
+            <div class="gh-navigation-members">
+                {{#unless @member}}
+                {{#unless @site.members_invite_only}}
+                <a href="#/portal/signin" data-portal="signin">Sign in</a>
+                {{#unless hideSubscribeButton}}
+                <a class="gh-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                {{/unless}}
+                {{else}}
+                <a class="gh-button" href="#/portal/signin" data-portal="signin">Sign in</a>
+                {{/unless}}
+                {{else}}
+                <a class="gh-button" href="#/portal/account" data-portal="account">Account</a>
+                {{/unless}}
+            </div>
             {{/unless}}
         </div>
 
     </div>
 </header>--}}
 
-<header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else match navigationLayout "Stacked"}}stacked{{else}}middle-logo{{/match}}{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
+<header id="gh-navigation" class="gh-navigation gh-outer">
     <div class="gh-navigation-inner gh-inner">
-
         <nav class="gh-navigation-menu">
-            {{navigation}}
+            <div class="nav-copyright">©2025</div>
+            <div class="nav-line">
+                <hr>
+            </div>
+            {{!-- Homepage: show only secondary nav (GH, LI) --}}
+            {{#is "home"}}
             {{navigation type="secondary"}}
-        </nav>
+            {{/is}}
 
+            {{!-- Work page: show only primary nav (HOME) --}}
+            {{#is "page"}}
+            {{#has slug="work"}}
+            {{navigation}}
+            {{/has}}
+            {{/is}}
+
+            {{!-- Posts: show Work link from primary nav --}}
+            {{#is "post"}}
+            {{navigation}}
+            {{/is}}
+
+            {{!-- Contact page: show only primary nav (HOME) --}}
+            {{#is "page"}}
+            {{#has slug="contact"}}
+            {{navigation}}
+            {{/has}}
+            {{/is}}
+
+            {{!-- About page: show only primary nav (HOME) --}}
+            {{#is "page"}}
+            {{#has slug="about"}}
+            {{navigation}}
+            {{/has}}
+            {{/is}}
+        </nav>
     </div>
-</header>    
+</header>
