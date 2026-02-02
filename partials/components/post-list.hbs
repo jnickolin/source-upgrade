@@ -6,7 +6,7 @@
     * showSidebar (true, false)
 --}}
 
-<section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
+{{!--<section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
     <div class="gh-container-inner gh-inner">
         
         {{#if showTitle}}
@@ -118,6 +118,31 @@
                 </div>
             </aside>
         {{/if}}
+
+    </div>
+</section>--}}
+
+{{!--
+    Parameters:
+    * feed (index, home)
+    * postFeedStyle (list)
+    * showTitle (false)
+    * showSidebar (false)
+--}}
+
+<section class="gh-container is-list no-image gh-outer">
+    <div class="gh-container-inner gh-inner">
+
+        <main class="gh-main">
+            <div class="gh-feed">
+
+                {{#get "posts" include="authors" limit="16"}}
+                    {{#foreach posts from="5"}}
+                        {{> "post-card" lazyLoad=true}}
+                    {{/foreach}}
+                {{/get}}
+            </div>
+        </main>
 
     </div>
 </section>

@@ -68,14 +68,18 @@
 
             {{!-- Work page: show only primary nav (HOME) --}}
             {{#is "page"}}
-            {{#has slug="work"}}
             {{navigation}}
-            {{/has}}
             {{/is}}
 
             {{!-- Posts: show Work link from primary nav --}}
             {{#is "post"}}
-            {{navigation}}
+                {{#get "pages" filter="slug:work" limit="1"}}
+                    {{#foreach pages}}
+                        <ul class="nav">
+                            <li><a href="{{url}}">{{title}}</a></li>
+                        </ul>
+                    {{/foreach}}
+                {{/get}}
             {{/is}}
 
             {{!-- Contact page: show only primary nav (HOME) --}}

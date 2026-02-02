@@ -378,6 +378,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100vw;
 }
 
 .gh-outer {
@@ -464,8 +465,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     grid-column-start: 1;
 }
 .nav-line {
-    grid-column-start: 13;
-    width: 130px;
+    grid-column-start: 14;
+    width: 100px;
 }
 
 .nav-line hr {
@@ -476,7 +477,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 .nav {
-    grid-column-start: 14;
+    grid-column-start: 15;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -484,6 +485,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.nav a:hover {
+    text-decoration: line-through;
 }
 
 @media (max-width: 1023px) {
@@ -571,6 +576,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-card {
     position: relative;
+    margin-bottom: 40px;
 }
 
 .gh-card-link {
@@ -611,10 +617,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 .gh-card-title {
-    font-size: calc(7rem * var(--factor, 1));
+    font-size: calc(6vw * var(--factor, 1));
     font-weight: 400;
     letter-spacing: -0.014em;
-    line-height: 1.3;
+    line-height: 1;
 }
 
 .gh-card-link:hover .gh-card-title {
@@ -624,7 +630,6 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-card-excerpt {
     display: -webkit-box;
     overflow-y: hidden;
-    margin-top: 8px;
     font-size: 1.45rem;
     line-height: 1.4;
     -webkit-line-clamp: 2;
@@ -3085,7 +3090,25 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 /* 23.1  Work page */
 
+.work-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    width: 100%;
+    margin: 200px auto;
+}
 
+.work-main {
+    position: fixed;
+    left: 10vw;
+    top: 500px;
+    width: 35%; /* Define how much space it takes */
+}
+
+.work-list {
+    width: 50%;
+    margin-left: calc(40% + 2vw); /* Push it past the fixed element */
+}
 
 /* 23.2 Page list - Used on Homepage */
 
