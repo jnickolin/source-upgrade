@@ -617,7 +617,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 .gh-card-title {
-    font-size: calc(6vw * var(--factor, 1));
+    font-size: calc(5vw * var(--factor, 1));
     font-weight: 400;
     letter-spacing: -0.014em;
     line-height: 1;
@@ -1668,8 +1668,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-article-excerpt {
     margin-top: clamp(12px, 0.45vw + 10.18px, 16px);
     max-width: 720px;
-    font-size: clamp(1.7rem, 0.23vw + 1.61rem, 1.9rem);
-    line-height: 1.45;
+    font-size: clamp(1.7rem, 0.23vw + 1.61rem, 1.45rem);
+    line-height: 1.6;
     letter-spacing: -0.018em;
 }
 
@@ -3100,14 +3100,43 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .work-main {
     position: fixed;
-    left: 10vw;
+    left: 8vw;
     top: 500px;
-    width: 35%; /* Define how much space it takes */
+    width: 34%; /* Define how much space it takes */
+}
+
+.work-title {
+    font-family: var(--font-montserrat);
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .work-list {
     width: 50%;
-    margin-left: calc(40% + 2vw); /* Push it past the fixed element */
+    margin-left: calc(43% + 3vw); /* Push it past the fixed element */
+}
+
+@media (max-width: 1023px) {
+    .work-wrapper {
+        flex-direction: column;
+        gap: 4vw;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .work-main {
+        position: unset;
+        left: unset;
+        top: unset;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .work-list {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 /* 23.2 Page list - Used on Homepage */
