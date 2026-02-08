@@ -492,6 +492,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 @media (max-width: 1023px) {
+
+
     .gh-navigation {
         position: relative;
         transform: unset;
@@ -662,6 +664,12 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-card-author + .gh-card-date::before {
     content: "—";
     margin-right: 4px;
+}
+
+@media (max-width: 1024px) {
+    .gh-card-title {
+        font-size: calc(11vw * var(--factor, 1));
+    }
 }
 
 /* 8. Header
@@ -1746,6 +1754,64 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     width: 100%;
 }
 
+.post-banner-container {
+  position: relative;
+  height: 100vh; /* Or whatever height you want */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Important! Hides the curtain as it slides out */
+  background-color: var(--ghost-accent-color); /* Background color for after curtain leaves */
+}
+
+/* The red curtain */
+.post-banner-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: 1; /* Behind the text */
+  transform: translateY(0);
+  animation: curtainSlideDown 1.2s ease-in-out 0.3s forwards;
+}
+
+/* Banner titles sit on top of the curtain */
+.post-banner-title {
+  font-family: var(--font-cositimes);
+  position: absolute;
+  font-size: 8rem;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--background-color); /* White text initially (visible on black) */
+  z-index: 2; /* Above the curtain */
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/* Staggered title animations */
+.banner-title-1 {
+  animation: fadeInUp 2s ease-out 0.2s forwards;
+}
+
+/* Curtain slides down and out of view */
+@keyframes curtainSlideDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 14.2. Page template */
 
 .page-template .gh-article-header {
@@ -1836,8 +1902,11 @@ unless a heading is the very first element in the post content */
 }
 
 .gh-content h3 {
-    font-size: calc(1.3em * var(--factor, 1));
-    letter-spacing: -0.017em;
+    font-size: calc(1em * var(--factor, 1));
+    letter-spacing: 0.035em;
+    text-decoration: underline;
+    color: var(--ghost-accent-color);
+    font-weight: 600;
 }
 
 .gh-content a {
@@ -2174,7 +2243,7 @@ figcaption a {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     color: var(--color-darker-gray);
 }
 
@@ -3117,7 +3186,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     margin-left: calc(43% + 3vw); /* Push it past the fixed element */
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
     .work-wrapper {
         flex-direction: column;
         gap: 4vw;
@@ -3249,3 +3318,4 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
         line-height: 16vw;
     }
 }
+
