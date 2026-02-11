@@ -3390,3 +3390,22 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 }
 
+/* 23.5 About page */
+
+.about-header {
+    margin: 0 auto;
+    width: var(--content-width);
+    display: flex;
+    flex-direction: row;
+    gap: var(--container-gap);
+}
+
+.about-header-title {
+    font-size: 9vw;
+    font-weight: 300;
+}
+
+.about-image {
+    max-width: 20%;
+}
+
