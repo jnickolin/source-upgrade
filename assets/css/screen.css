@@ -46,6 +46,9 @@ production stylesheet in assets/built/screen.css
 22. Lightbox
 23. Custom Templates
     23.1 Work page
+    23.2 Contact page
+    23.3 Page list
+    23.4 Page card
 
 */
 
@@ -620,7 +623,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-card-title {
     font-size: calc(5vw * var(--factor, 1));
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.014em;
     line-height: 1;
 }
@@ -1756,7 +1759,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .post-banner-container {
   position: relative;
-  height: 100vh; /* Or whatever height you want */
+  height: 40vh; /* Or whatever height you want */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1781,7 +1784,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .post-banner-title {
   font-family: var(--font-cositimes);
   position: absolute;
-  font-size: 8rem;
+  font-size: 8vw;
   font-weight: 400;
   font-style: normal;
   color: var(--background-color); /* White text initially (visible on black) */
@@ -2013,6 +2016,28 @@ unless a heading is the very first element in the post content */
     font-family: var(--font-mono);
 }
 
+.post-intro-wrapper {
+    width: 70%;
+    margin: 40px auto;
+}
+
+.post-intro {
+    font-family: var(--font-montserrat);
+    font-size: 3vw;
+    line-height: 1.3;
+}
+
+@media (max-width: 991px) {
+    .post-intro-wrapper {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .post-intro {
+        font-size: 3vh;
+    }
+}
+
 /* 16. Cards
 /* ---------------------------------------------------------- */
 
@@ -2232,6 +2257,8 @@ figcaption a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .kg-three-column-text-item {
@@ -2244,7 +2271,6 @@ figcaption a {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 10px;
-    color: var(--color-darker-gray);
 }
 
 .kg-three-column-text-subheading {
@@ -2252,25 +2278,25 @@ figcaption a {
     line-height: 1.5;
     color: var(--color-primary-text);
     margin: 0;
-    font-weight: 400;
 }
 
 @media (max-width: 991px) {
     .kg-three-column-text-container {
         gap: 48px;
         padding: 0 32px;
+        width: 100%
     }
 }
 
 @media (max-width: 767px) {
     .kg-three-column-text-card {
-        padding: 32px 0;
+            padding: 0;
     }
     
     .kg-three-column-text-container {
         grid-template-columns: 1fr;
         gap: 32px;
-        padding: 0 24px;
+        padding: 0;
     }
 }
 
@@ -2420,7 +2446,6 @@ figcaption a {
 
 .has-cositimes-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.is-title, .gh-content :is(h2, h3)) {
     font-family: var(--gh-font-heading, var(--font-cositimes));
-    font-weight: 300;
     font-style: normal;
 }
 
@@ -3208,7 +3233,52 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 }
 
-/* 23.2 Page list - Used on Homepage */
+/* 23.2 Contact Page */
+.contact-article {
+    margin-top: 16vw;
+    margin-left: 11vw
+}
+
+.contact-title {
+    font-family: var(--font-cositimes);
+    font-size: 13vw;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-indent: -0.06em;
+}
+
+.contact-excerpt {
+    max-width: 450px;
+}
+
+.contact-content {
+    font-family: var(--font-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+@media (max-width: 1024px) {
+    .contact-article {
+        margin-top: 10vw;
+        margin-left: 0;
+    }
+
+    .contact-title {
+        font-size: 18vw;
+        line-height: 1;
+    }
+
+    .contact-excerpt {
+        max-width: 100%;
+    }
+}
+
+/* 23.3 Page list - Used on Homepage */
 
 .page-list {
     display: flex;
@@ -3231,6 +3301,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .bio-lockup {
     max-width: 350px;
     margin-bottom: 2vw;
+    overflow: hidden;
 }
 
 .bio-title {
@@ -3269,7 +3340,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 
 
-/* 23.3 Page card - Used on Homepage */
+/* 23.4 Page card - Used on Homepage */
 
 @keyframes resume-fade {
     from {

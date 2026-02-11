@@ -1,0 +1,26 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#post}}
+
+<main class="contact-main">
+    <article class="contact-article {{post_class}}">
+
+        {{#match @page.show_title_and_feature_image}}
+            <header class="contact-header gh-canvas">
+                <h1 class="contact-title is-title">Hello.</h1>
+                {{#if custom_excerpt}}
+                    <p class="contact-excerpt is-body">{{custom_excerpt}}</p>
+                {{/if}}
+                {{> "feature-image"}}
+            </header>
+        {{/match}}
+
+        <section class="contact-content gh-canvas is-body">
+            {{content}}
+        </section>
+
+    </article>
+</main>
+
+{{/post}}
