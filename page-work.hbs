@@ -9,11 +9,11 @@
 
             {{#match @page.show_title_and_feature_image}}
                 <header class="gh-article-header gh-canvas">
-                    <h1 class="work-title">{{title}}</h1>
+                    <h1 class="work-title slide-up-el">{{title}}</h1>
                     {{#if custom_excerpt}}
-                        <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
+                        <p class="gh-article-excerpt is-body slide-up-el">{{custom_excerpt}}</p>
                         {{else}}
-                        <p class="gh-article-excerpt is-body">{{excerpt}}</p>
+                        <p class="gh-article-excerpt is-body slide-up-el">{{excerpt}}</p>
                     {{/if}}
                 </header>
             {{/match}}

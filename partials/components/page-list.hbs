@@ -1,15 +1,15 @@
 <section class="page-list portfolio-nav">
     <div class="bio-lockup-wrapper">
         <div class="bio-lockup">
-            <h2 class="bio-title">
+            <h2 class="bio-title slide-up-el">
                 JOJO NICKOLIN
             </h2>
-            <p class="bio-description bio-roles">Front-End Developer / E-Commerce Site Operations Manager / Consultant</p>
-            <p class="bio-description bio-info">HTML, CSS, JavaScript, Handlebars</p>
+            <p class="bio-description bio-roles slide-up-el">Front-End Developer / E-Commerce Site Operations Manager / Consultant</p>
+            <p class="bio-description bio-info slide-up-el">HTML, CSS, JavaScript, Handlebars</p>
         </div>
     </div>
     <div class="page-list-wrapper">
-        {{#get "pages" limit="all" filter="slug:[work,resume,about,contact]"}}
+        {{#get "pages" limit="all" filter="slug:[work,credits,about,contact]"}}
             {{#foreach pages}}
                 {{> "page-card"}}
             {{/foreach}}

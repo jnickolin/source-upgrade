@@ -8,16 +8,18 @@
 
         {{#match @page.show_title_and_feature_image}}
             <header class="contact-header gh-canvas">
-                <h1 class="contact-title is-title">Hello.</h1>
+                <h1 class="contact-title is-title">HELLO.</h1>
                 {{#if custom_excerpt}}
-                    <p class="contact-excerpt is-body">{{custom_excerpt}}</p>
+                    <div>
+                        <p class="contact-excerpt is-body slide-up-el">{{custom_excerpt}}</p>
+                    </div>
                 {{/if}}
                 {{> "feature-image"}}
             </header>
         {{/match}}
 
-        <section class="contact-content gh-canvas is-body">
-            {{content}}
+        <section class="contact-content gh-canvas is-body slide-up-el">
+            <div>{{content}}</div>
         </section>
 
     </article>

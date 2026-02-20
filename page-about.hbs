@@ -4,25 +4,23 @@
 {{#post}}
 
 <main class="gh-main">
-    <article class="gh-article {{post_class}}">
-
-        {{#match @page.show_title_and_feature_image}}
+    <article class="about-article gh-article {{post_class}}">
+        <div class="about-header-content">
             <header class="about-header gh-canvas">
                 <div class="about-text-lockup">
-                    <h1 class="about-header-title is-title">{{title}}</h1>
+                    <h1 class="about-header-title is-title slide-up-el">{{title}}</h1>
                     {{#if custom_excerpt}}
-                    <p class="about-page-excerpt is-body">{{custom_excerpt}}</p>
+                    <p class="about-page-excerpt post-intro is-body">{{custom_excerpt}}</p>
                     {{/if}}
                 </div>
-                <div class="about-image">
-                    {{> "feature-image"}}
-                </div>
             </header>
-        {{/match}}
-
-        <section class="about-content-wrapper gh-canvas is-body">
-            <div class="about-content">{{content}}</div>
-        </section>
+            <section class="about-content-wrapper gh-canvas is-body">
+                <div class="about-content">{{content}}</div>
+            </section>
+        </div>
+        <div class="about-image">
+            {{> "feature-image"}}
+        </div>
 
     </article>
 </main>

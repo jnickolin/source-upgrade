@@ -157,7 +157,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: var(--color-primary-text);
     text-decoration: none;
 }
 
@@ -373,6 +372,31 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 }
 
+/* 4.1. Color swap for Work & Contact pages */
+
+/* Inverted colors for Work and Contact pages */
+.page-work,
+.page-contact {
+    background-color: var(--color-primary-text);
+    color: var(--background-color);
+}
+
+.page-work .gh-navigation,
+.page-contact .gh-navigation {
+    background-color: var(--color-primary-text);
+    color: var(--background-color);
+}
+
+.page work .nav-home,
+.page-contact .nav-home {
+    color: var(--background-color);
+}
+
+.page-work .nav-line hr,
+.page-contact .nav-line hr {
+    background-color: var(--background-color);
+}
+
 /* 5. Layout
 /* ---------------------------------------------------------- */
 
@@ -507,6 +531,24 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 }
 
+@media (max-width: 420px) {
+    .nav-line {
+        grid-column-start: 12;
+        width: 50px;
+    }
+
+    .nav {
+        grid-column-start: 15;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 32px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }    
+}
+
 /* 6.1. Navigation styles */
 
 .gh-navigation.has-accent-color {
@@ -594,6 +636,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     opacity: 1;
 }
 
+.gh-card-link:visited {
+    color: var(--background-color);
+}
+
 .gh-card-image {
     position: relative;
     flex-shrink: 0;
@@ -608,8 +654,23 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     object-fit: cover;
 }
 
+/* Headline Fade for Work Page - colors swapped */
+
+@keyframes resume-fade-swap {
+    from {
+        color:#fc221c;
+    }
+    to {
+        color: #f8dfdb;
+    }
+}
+
 .gh-card-wrapper {
     flex-grow: 1;
+    animation-name: resume-fade-swap;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
 }
 
 .gh-card-tag {
@@ -626,6 +687,15 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-weight: 300;
     letter-spacing: -0.014em;
     line-height: 1;
+    transition-property: letter-spacing, margin-left;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    transition-duration: 0.7s;
+    overflow: hidden;
+}
+
+.gh-card-title:hover {
+    letter-spacing: 0.02em;
+    margin-left: 10px;
 }
 
 .gh-card-link:hover .gh-card-title {
@@ -1653,8 +1723,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-article {
     --container-width: 1120px;
-
     word-break: break-word;
+   /* margin-bottom: 100px; */
 }
 
 .gh-article-header {
@@ -1750,7 +1820,6 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-article-image {
     grid-column: wide;
-    margin-top: 40px;
 }
 
 .gh-article-image img {
@@ -1785,17 +1854,17 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
   font-family: var(--font-cositimes);
   position: absolute;
   font-size: 8vw;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   color: var(--background-color); /* White text initially (visible on black) */
   z-index: 2; /* Above the curtain */
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(200px);
 }
 
 /* Staggered title animations */
 .banner-title-1 {
-  animation: fadeInUp 2s ease-out 0.2s forwards;
+  animation: fadeInUp 1s ease-out 1.75s forwards;
 }
 
 /* Curtain slides down and out of view */
@@ -1818,7 +1887,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* 14.2. Page template */
 
 .page-template .gh-article-header {
-    margin-block: 72px 32px;
+    margin-block: 10% 32px;
 }
 
 /* 14.3. Page without header */
@@ -1907,7 +1976,6 @@ unless a heading is the very first element in the post content */
 .gh-content h3 {
     font-size: calc(1em * var(--factor, 1));
     letter-spacing: 0.035em;
-    text-decoration: underline;
     color: var(--ghost-accent-color);
     font-weight: 600;
 }
@@ -2016,14 +2084,15 @@ unless a heading is the very first element in the post content */
     font-family: var(--font-mono);
 }
 
-.post-intro-wrapper {
+.post-content {
     width: 70%;
-    margin: 40px auto;
+    margin: 0 auto;
+    overflow: visible;
 }
 
 .post-intro {
     font-family: var(--font-montserrat);
-    font-size: 3vw;
+    font-size: 2.5vw;
     line-height: 1.3;
 }
 
@@ -2061,9 +2130,8 @@ unless a heading is the very first element in the post content */
 
 /* Image */
 
-.kg-image {
-    margin-right: auto;
-    margin-left: auto;
+.kg-image-card img {
+    width: 140%;
 }
 
 /* Embed */
@@ -2248,17 +2316,12 @@ figcaption a {
 
 /* Three Column Text Card */
 
-.kg-three-column-text-card {
-    margin: 64px 0;
-    padding: 48px 0;
-}
-
 .kg-three-column-text-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
-    width: 70%;
     margin: 0 auto;
+    overflow: visible;
 }
 
 .kg-three-column-text-item {
@@ -2447,6 +2510,7 @@ figcaption a {
 .has-cositimes-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) :is(.is-title, .gh-content :is(h2, h3)) {
     font-family: var(--gh-font-heading, var(--font-cositimes));
     font-style: normal;
+    font-weight: 300;
 }
 
 
@@ -2492,6 +2556,11 @@ figcaption a {
     line-height: 1.15;
     letter-spacing: -0.006em;
     font-size: calc(2.0rem*var(--factor, 1))
+}
+
+.has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .gh-card-title:hover {
+    letter-spacing: 0.02em;
+    margin-left: 10px;
 }
 
 .has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .gh-featured-feed .gh-card-title {
@@ -3182,7 +3251,28 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* 23. Custom Content
 /* ---------------------------------------------------------- */
 
+/* 23.0 Custom Keyframe Animation */
+
+.slide-up-el {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays for sequence */
+.slide-up-el:nth-child(1) { animation-delay: 0.4s; }
+.slide-up-el:nth-child(2) { animation-delay: 0.55s; }
+.slide-up-el:nth-child(3) { animation-delay: 0.7s; }
+
 /* 23.1  Work page */
+
 
 .work-wrapper {
     display: flex;
@@ -3224,7 +3314,6 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
         left: unset;
         top: unset;
         width: 100%;
-        margin-bottom: 40px;
     }
 
     .work-list {
@@ -3247,6 +3336,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     line-height: 1;
     letter-spacing: -0.01em;
     text-indent: -0.06em;
+    animation-name: resume-fade-swap;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
 }
 
 .contact-excerpt {
@@ -3260,6 +3353,15 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-style: normal;
     line-height: 1.6;
     margin-top: 15px;
+}
+
+.contact-content a {
+    text-decoration: underline;
+    color: var(--background-color);
+}
+
+.contact-content a:hover {
+    text-decoration: line-through;
 }
 
 @media (max-width: 1024px) {
@@ -3334,7 +3436,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     }
 
     .bio-lockup {
-        max-width: 100%;
+        width: 100%;
     }
 }
 
@@ -3361,19 +3463,23 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     line-height: 9vw;
     letter-spacing: -0.01em;
     margin-left: 0;
-    transition-property: letter-spacing, margin-left;
-    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-    transition-duration: 0.7s;
-    overflow: hidden;
     animation-name: resume-fade;
     animation-duration: 1s;
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
+    transition-property: letter-spacing, margin-left;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    transition-duration: 0.7s;
+    overflow: hidden;
 }
 
 .page-card-title:hover {
     letter-spacing: 0.02em;
     margin-left: 10px;
+}
+
+a.page-card-link:visited {
+    color: var(--ghost-accent-color);
 }
 
 @media (max-width: 1023px) {
@@ -3392,20 +3498,41 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 /* 23.5 About page */
 
-.about-header {
-    margin: 0 auto;
-    width: var(--content-width);
+.about-article {
     display: flex;
     flex-direction: row;
-    gap: var(--container-gap);
+    width: var(--content-width);
+    margin: 100px auto;
+}
+
+.about-header-content {
+    width: 60%;
+}
+
+.about-header {
+    margin: 35px 5% 35px 7%;
 }
 
 .about-header-title {
     font-size: 9vw;
     font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.about-content-wrapper {
+    margin: 0 5% 0 7%;
+}
+
+.about-content p {
+    margin-top: 20px;
+}
+
+.about-content h2 {
+    margin-top: 40px;
+    font-family: var(--gh-font-body);
+    font-weight: 400;
 }
 
 .about-image {
-    max-width: 20%;
+    width: 35%;
 }
-
